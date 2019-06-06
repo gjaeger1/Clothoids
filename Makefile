@@ -17,7 +17,7 @@ WARN=-Wall -Wno-sign-compare
 
 # check if the OS string contains 'Linux'
 ifneq (,$(findstring Linux, $(OS)))
-  LIBS     = -static -L./lib -lClothoids
+  LIBS     = -L./lib -lClothoids
   CXXFLAGS = -std=c++11 $(WARN) -O3 -fPIC
   AR       = ar rcs
   LDCONFIG = sudo ldconfig
@@ -83,6 +83,7 @@ bin: lib
 	$(CXX) $(INC) $(CXXFLAGS) -o bin/testIntersect    tests-cpp/testIntersect.cc  $(LIBS)
 	$(CXX) $(INC) $(CXXFLAGS) -o bin/testPolyline     tests-cpp/testPolyline.cc   $(LIBS)
 	$(CXX) $(INC) $(CXXFLAGS) -o bin/testTriangle2D   tests-cpp/testTriangle2D.cc $(LIBS)
+	$(CXX) $(INC) $(CXXFLAGS) -o bin/testClothoid     tests-cpp/testClothoid.cc   $(LIBS)
 
 lib: lib/$(LIB_CLOTHOID)$(STATIC_EXT) lib/$(LIB_CLOTHOID)$(DYNAMIC_EXT)
 
